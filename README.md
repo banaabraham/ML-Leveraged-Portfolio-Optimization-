@@ -29,7 +29,7 @@
 
 **Dependencies**
 
-- Python 3.11 (kernel metadata shows 3.11.9)
+- Python 3.11 
 - pandas, numpy, matplotlib, tqdm
 - yfinance
 - darts (TimeSeries + forecasting models)
@@ -39,11 +39,9 @@
 Example install (adjust versions as needed):
 
 - `pip install pandas numpy matplotlib tqdm yfinance` 
-- `pip install u8darts[all]`  (or `pip install darts` if you prefer minimal extras)
+- `pip install darts==0.29.0`
 - `pip install lightgbm`
-- `pip install cvxpy ecos`
-
-If `u8darts[all]` fails on your platform, install `darts` plus the specific libs you need (lightgbm, etc.).
+- `pip install cvxpy==1.7.1 ecos==2.0.14`
 
 **Data Input**
 
@@ -75,4 +73,3 @@ If `u8darts[all]` fails on your platform, install `darts` plus the specific libs
 
 - Notebook: `concept.ipynb`
 - Input list: `sp500_companies.csv`
-

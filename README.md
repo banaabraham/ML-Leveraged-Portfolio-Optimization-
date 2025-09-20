@@ -9,12 +9,13 @@
 - Download data: Uses `yfinance` to fetch daily OHLCV for those tickers (example start: `2024‑01‑01`).
 - Prep features: Builds a multivariate time series of daily closing prices and fills gaps.
 - Forecast: Trains rolling 1‑step‑ahead models using `darts`:
-  - `LightGBMModel(lags=12)`
-  - `LinearRegressionModel(lags=10)`
-- Metrics: Computes `MAE`, `MAPE`, and `RMSE` on the aligned actuals vs. predictions.
+  - `LightGBMModel()`
+  - `LinearRegressionModel()`
+  - `TCNModel()`
+- Metrics: Computes `MAE`, `MAPE`, `sMAPE`, and `RMSE` on the aligned actuals vs. predictions.
 - Portfolio step: For each day, solves a minimum‑variance optimization in `cvxpy` with a minimum expected return constraint using the model’s predicted returns; long‑only, weights sum to 1.
 - Benchmark: Repeats the optimization but with expected returns from historical averages (no model), as a baseline.
-- Simulation: Compounds realized portfolio returns, computes wealth curve, cumulative return, and annualized Sharpe.
+- Simulation: Compounds realized portfolio returns, computes wealth curve, turnover ratio, cumulative return, and annualized Sharpe.
 - Visualization: Plots selected series and the forecast overlay for quick inspection.
 
 **Key Objects/Variables**
